@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header">
+    Sensors
+  </div>
+  <div class="card-body">
+    <div class="m-a-1">
+
+      <table class="table table-sm table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th class="text-sm-center">Current</th>
+          <th class="text-sm-center">Low</th>
+          <th class="text-sm-center">Upper</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let sensor of sensors; let i = index">
+          <td><b>{{ i + 1 }}</b></td>
+          <td>{{ sensor.name }}</td>
+          <td class="text-sm-center">{{ sensor.topValue }}</td>
+          <td class="text-sm-center">{{ sensor.lowValue}}</td>
+          <td class="text-sm-center">{{ sensor.upperValue }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
