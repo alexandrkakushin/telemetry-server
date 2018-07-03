@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {FileSystem} from "../model/filesystem.model";
-import {FileSystemsRepository} from "../model/filesystems.repository";
+import {FileSystem} from "../../model/filesystem.model";
+import {FileSystemsRepository} from "../../model/filesystems.repository";
 
 @Component({
   selector: 'filesystems-root',

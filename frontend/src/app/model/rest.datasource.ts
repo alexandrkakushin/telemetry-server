@@ -1,27 +1,28 @@
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import {Os} from "./os.model";
 import {FileSystem} from "./filesystem.model";
 import {Sensor} from "./sensor.model";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class RestDataSource {
 
-  apiUrl = '/api';
+  apiUrl = environment.backend + '/api';
 
-  constructor(private http: Http) {}
+  constructor(private httpClient: HttpClient) {}
 
   getOs(): Observable<Os> {
-    return this.http.get(this.apiUrl + '/os').map(response => response.json() as Os);
+    return this.httpClient.get<Os>(this.apiUrl + '/os');
   }
 
   getFileSystems(): Observable<FileSystem[]> {
-    return this.http.get(this.apiUrl + '/filesystems').map(response => response.json());
+    return this.httpClient.get<FileSystem[]>(this.apiUrl + '/filesystems');
   }
 
   getSensors(): Observable<Sensor[]> {
-    return this.http.get(this.apiUrl + '/sensors').map(response => response.json());
+    return this.httpClient.get<Sensor[]>(this.apiUrl + '/sensors');
   }
 }

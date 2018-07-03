@@ -1,17 +1,20 @@
 
 import {Injectable} from "@angular/core";
 import {FileSystem} from "./filesystem.model";
-import {StaticDataSource} from "./static.datasource";
+import {RestDataSource} from "./rest.datasource";
 
 @Injectable()
 export class FileSystemsRepository {
 
   private fileSystems: FileSystem[] = [];
 
-  constructor(private dataSource: StaticDataSource) {
+  constructor(private dataSource: RestDataSource) {
     this.dataSource.getFileSystems().subscribe(
       data => {
-        this.fileSystems = data;
+        this.fileSystems = [];
+        data.forEach(
+          (item) => {this.fileSystems.push(FileSystem.assign(item))}
+        )
       }
     );
   }

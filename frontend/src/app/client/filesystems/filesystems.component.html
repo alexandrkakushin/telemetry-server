@@ -12,13 +12,15 @@
           <th>#</th>
           <th>Mount On</th>
           <th class="text-sm-center">Used, %</th>
+          <th class="text-sm-center">Avail</th>
         </thead>
         <tbody>
-        <tr *ngFor="let item of fileSystems; let i = index">
-          <td><b>{{ i + 1 }}</b></td>
-          <td>{{ item.mountOn }}</td>
-          <td class="text-sm-center">{{ item.percentUsed }}</td>
-        </tr>
+          <tr *ngFor="let item of fileSystems; let i = index">
+            <td><b>{{ i + 1 }}</b></td>
+            <td>{{ item.mountOn }}</td>
+            <td class="text-sm-center">{{ item.percentUsed }}</td>
+            <td class="text-sm-center">{{ item.availHuman }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

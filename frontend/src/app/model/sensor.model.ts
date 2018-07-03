@@ -9,4 +9,15 @@ export class Sensor {
     public lowType?: string,
     public upperType?: string) {}
 
+
+  static assign(item: any): Sensor {
+    return new Sensor(
+      item.name,
+      item.lowValue,
+      item.upperValue,
+      item.topValue,
+      item.lowType,
+      item.upperType
+    )
+  }
 }

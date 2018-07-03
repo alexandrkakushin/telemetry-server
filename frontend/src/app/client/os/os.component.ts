@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {OsRepository} from "../model/os.repository";
-import {Os} from "../model/os.model";
+import {OsRepository} from "../../model/os.repository";
+import {Os} from "../../model/os.model";
 
 @Component({
   selector: 'os-root',

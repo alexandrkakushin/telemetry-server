@@ -1,14 +1,14 @@
 
 import { Injectable } from "@angular/core";
 import {Os} from "./os.model";
-import {StaticDataSource} from "./static.datasource";
+import {RestDataSource} from "./rest.datasource";
 
 @Injectable()
 export class OsRepository {
 
   private operatingSystem: Os;
 
-  constructor(private dataSource: StaticDataSource) {
+  constructor(private dataSource: RestDataSource) {
     this.dataSource.getOs().subscribe(
       data => {
         this.operatingSystem = data;

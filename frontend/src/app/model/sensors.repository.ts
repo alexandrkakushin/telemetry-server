@@ -1,21 +1,23 @@
 
 import {Injectable} from "@angular/core";
 import {Sensor} from "./sensor.model";
-import {StaticDataSource} from "./static.datasource";
 import {timer} from 'rxjs/observable/timer';
+import {RestDataSource} from "./rest.datasource";
 
 @Injectable()
 export class SensorsRepository {
 
   private sensors: Sensor[] = [];
 
-  constructor(private dataSource: StaticDataSource) {
-
+  constructor(private dataSource: RestDataSource) {
     timer(0, 3000)
       .subscribe(() => {
         this.dataSource.getSensors().subscribe(
           data => {
-            this.sensors = data;
+            this.sensors = [];
+            data.forEach(
+              (item) => {this.sensors.push(Sensor.assign(item))}
+            );
           }
         );
       });
@@ -24,9 +26,4 @@ export class SensorsRepository {
   getSensors(): Sensor[] {
     return this.sensors;
   }
-
-  ngOnDestroy(){
-
-  }
-
 }
