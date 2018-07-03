@@ -40,6 +40,20 @@
         <version>1.5.0</version>
         <executions>
           <execution>
+            <id>angular-cli install</id>
+            <configuration>
+              <workingDirectory>.</workingDirectory>
+              <executable>npm</executable>
+              <arguments>
+                <argument>install</argument>
+              </arguments>
+            </configuration>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+          <execution>
             <id>angular-cli build</id>
             <configuration>
               <workingDirectory>.</workingDirectory>
@@ -48,8 +62,6 @@
                 <argument>build</argument>
                 <argument>--prod</argument>
                 <argument>--output-path=dist/META-INF/resources</argument>
-                <!--<argument>&#45;&#45;base-href</argument>-->
-                <!--<argument>"/frontend/"</argument>-->
               </arguments>
             </configuration>
             <phase>generate-resources</phase>
