@@ -21,7 +21,16 @@ public class OutputReader {
             BufferedReader reader = new BufferedReader(new InputStreamReader(stdout));
             String line;
             while ((line = reader.readLine()) != null) {
-                output.add(line);
+                StringBuilder sb = new StringBuilder();
+                for (int indexSymbol = 0; indexSymbol < line.length(); indexSymbol++) {
+                    if (line.charAt(indexSymbol) == ' ') {
+                        if (line.charAt(indexSymbol - 1) == ' ') {
+                            continue;
+                        }
+                    }
+                    sb.append(line.charAt(indexSymbol));
+                }
+                output.add(sb.toString());
             }
         } catch (IOException ex) {
             System.out.println("Error read output");            

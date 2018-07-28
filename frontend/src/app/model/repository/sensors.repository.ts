@@ -1,6 +1,6 @@
 
 import {Injectable} from "@angular/core";
-import {Sensor} from "./sensor.model";
+import {Sensor} from "../sensor.model";
 import {timer} from 'rxjs/observable/timer';
 import {RestDataSource} from "./rest.datasource";
 

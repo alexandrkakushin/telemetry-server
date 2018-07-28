@@ -33,7 +33,7 @@ public class ScannerFileSystems {
             FileSystem fileSystem = new FileSystem();
 
             String rowOutput = output.get(i);
-            String[] parts = new String[6];
+            String[] parts;
             StringBuilder sb = new StringBuilder();
             for (int indexSymbol = 0; indexSymbol < rowOutput.length(); indexSymbol++) {
                 if (rowOutput.charAt(indexSymbol) == ' ') {

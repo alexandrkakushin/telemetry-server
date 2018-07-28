@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Sensor} from "../../model/sensor.model";
-import {SensorsRepository} from "../../model/sensors.repository";
+import {SensorsRepository} from "../../model/repository/sensors.repository";
 
 @Component({
   selector: 'sensors-root',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {OsRepository} from "../../model/os.repository";
+import {OsRepository} from "../../model/repository/os.repository";
 import {Os} from "../../model/os.model";
 
 @Component({

@@ -1,14 +1,16 @@
 
 import { NgModule } from "@angular/core";
-import {OsRepository} from "./os.repository";
-import {FileSystemsRepository} from "./filesystems.repository";
-import {SensorsRepository} from "./sensors.repository";
-import {RestDataSource} from "./rest.datasource";
+import {OsRepository} from "./repository/os.repository";
+import {FileSystemsRepository} from "./repository/filesystems.repository";
+import {SensorsRepository} from "./repository/sensors.repository";
+import {RestDataSource} from "./repository/rest.datasource";
 import {HttpClientModule} from "@angular/common/http";
+import {CpuRepository} from "./repository/cpu.repository";
 
 @NgModule({
   imports: [HttpClientModule],
   providers: [
+    CpuRepository,
     FileSystemsRepository,
     SensorsRepository,
     OsRepository,

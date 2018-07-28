@@ -1,6 +1,6 @@
 
 import { Injectable } from "@angular/core";
-import {Os} from "./os.model";
+import {Os} from "../os.model";
 import {RestDataSource} from "./rest.datasource";
 
 @Injectable()
