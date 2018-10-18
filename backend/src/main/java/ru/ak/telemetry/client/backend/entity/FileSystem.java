@@ -15,7 +15,7 @@ public class FileSystem {
     public FileSystem() {
     }
 
-    public FileSystem( String name, String mountOn, Long total, Long used) {
+    public FileSystem(String name, String mountOn, Long total, Long used) {
         this.name = name;
         this.mountOn = mountOn;
         this.total = total;
@@ -54,6 +54,13 @@ public class FileSystem {
         this.used = used;
 
         this.avail = this.total - this.used;
+        this.percentUsed = (int) (this.used / (this.total * 1f) * 100);
+    }
+
+    public void setAvail(Long avail) {
+        this.avail = avail;
+
+        this.used = this.total - this.avail;
         this.percentUsed = (int) (this.used / (this.total * 1f) * 100);
     }
 

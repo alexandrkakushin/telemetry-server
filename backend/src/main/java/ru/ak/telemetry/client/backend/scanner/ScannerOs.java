@@ -27,7 +27,9 @@ public class ScannerOs {
         String version = null;
         OperatingSystem.Type typeOs = null;
 
-        if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+        String osName = System.getProperty("os.name").toLowerCase();
+
+        if (osName.contains("linux")) {
             ArrayList<String> output = OutputReader.getOutput("lsb_release -a");
             for (String line : output) {
                 if (line.contains("Distributor ID")) {
@@ -38,6 +40,10 @@ public class ScannerOs {
                 }
             }
             typeOs = OperatingSystem.Type.valueOf(type.toUpperCase());
+
+        } else if (osName.contains("windows")) {
+            typeOs = OperatingSystem.Type.WINDOWS;
+            version = System.getProperty("os.version");
         }
 
         operatingSystem.setArch(arch);

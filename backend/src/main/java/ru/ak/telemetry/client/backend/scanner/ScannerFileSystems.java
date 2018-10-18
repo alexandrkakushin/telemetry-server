@@ -5,6 +5,12 @@ import org.springframework.stereotype.Service;
 import ru.ak.telemetry.client.backend.entity.FileSystem;
 import ru.ak.telemetry.client.backend.entity.OperatingSystem;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileStore;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +27,9 @@ public class ScannerFileSystems {
         List<FileSystem> list = null;
         if (operatingSystem.getType().isLinux()) {
             list = getLinuxFileSystems();
+
+        } else if (operatingSystem.getType() == OperatingSystem.Type.WINDOWS) {
+            list = getWindowsFileSystems();
         }
         return list;
     }
@@ -54,4 +63,28 @@ public class ScannerFileSystems {
         return list;
     }
 
+    private List<FileSystem> getWindowsFileSystems() {
+        List<FileSystem> list = new ArrayList<>();
+
+        for (Path root : FileSystems.getDefault().getRootDirectories()) {
+
+            FileSystem fileSystem = new FileSystem();
+            fileSystem.setMountOn(root.toString());
+
+            try {
+                FileStore fileStore = Files.getFileStore(root);
+                fileSystem.setTotal(fileStore.getTotalSpace());
+                fileSystem.setAvail(fileStore.getUsableSpace());
+                
+                fileSystem.setName(fileStore.toString());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            list.add(fileSystem);
+        }
+
+        return list;
+    }
 }
