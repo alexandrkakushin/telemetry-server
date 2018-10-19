@@ -73,8 +73,8 @@ public class ScannerFileSystems {
 
             try {
                 FileStore fileStore = Files.getFileStore(root);
-                fileSystem.setTotal(fileStore.getTotalSpace());
-                fileSystem.setAvail(fileStore.getUsableSpace());
+                fileSystem.setTotal(fileStore.getTotalSpace() / 1024);
+                fileSystem.setAvail(fileStore.getUsableSpace() / 1024);
                 
                 fileSystem.setName(fileStore.toString());
 
