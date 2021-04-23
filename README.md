@@ -1,6 +1,11 @@
-# telemetry-client
-Telemetry (client), only Ubuntu
+# telemetry-server
+Telemetry (server), only Ubuntu
 
 Spring Boot + Angular/CLI
 
-Получение информации о состоянии файловой системы и чтение значений датчиков (температура CPU, +5V, +12V, +3.3V, VCore и т.д.)
+Getting info about:
+<ul>
+    <li>Available disk space</li>
+    <li>CPU temp (C)</li>
+    <li>CPU load (%)</li>
+</ul>
