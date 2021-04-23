@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.ak.telemetry.client.backend.entity.FileSystem;
 import ru.ak.telemetry.client.backend.entity.OperatingSystem;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileStore;
 import java.nio.file.FileSystems;
@@ -39,26 +38,24 @@ public class ScannerFileSystems {
 
         ArrayList<String> output = OutputReader.getOutput("df");
         for (int i = 1; i < output.size(); i++) {
-            FileSystem fileSystem = new FileSystem();
-
             String rowOutput = output.get(i);
             String[] parts;
             StringBuilder sb = new StringBuilder();
             for (int indexSymbol = 0; indexSymbol < rowOutput.length(); indexSymbol++) {
-                if (rowOutput.charAt(indexSymbol) == ' ') {
-                    if (rowOutput.charAt(indexSymbol - 1) == ' ') {
-                        continue;
-                    }
+                if (rowOutput.charAt(indexSymbol) == ' ' && rowOutput.charAt(indexSymbol - 1) == ' ') {
+                    continue;
                 }
                 sb.append(rowOutput.charAt(indexSymbol));
             }
             parts = sb.toString().split(" ");
-
-            fileSystem.setName(parts[0]);
-            fileSystem.setTotal(Long.parseLong(parts[1]));
-            fileSystem.setMountOn(parts[5]);
-            fileSystem.setUsed(Long.parseLong(parts[2]));
-            list.add(fileSystem);
+            
+            list.add(
+                new FileSystem(
+                    parts[0],
+                    parts[5],
+                    Long.parseLong(parts[1]),
+                    Long.parseLong(parts[2]),
+                    Long.parseLong(parts[3])));        
         }
         return list;
     }

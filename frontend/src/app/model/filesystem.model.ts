@@ -1,7 +1,6 @@
 
 export class FileSystem {
 
-  private avail: number;
   private availHuman: string;
   private percentUsed: number;
 
@@ -9,19 +8,18 @@ export class FileSystem {
     private name?: string,
     private mountOn?: string,
     private total?: number,
-    private used?: number
+    private used?: number,
+    private avail?: number
   ) {
     this.setPersentUsed();
     this.setAvail();
   }
 
   private setPersentUsed(): void {
-    this.percentUsed = Math.round((this.used / this.total) * 100);
+    this.percentUsed = 100 - Math.round((this.avail / this.total) * 100);
   }
 
   private setAvail(): void {
-    this.avail = this.total - this.used;
-
     // Начальная единица - Kb
     let unit = [
       {name: "Tb", value: 1024 * 1024 * 1024},
@@ -45,7 +43,8 @@ export class FileSystem {
       item.name,
       item.mountOn,
       item.total,
-      item.used
+      item.used,
+      item.avail
     );
   }
 }

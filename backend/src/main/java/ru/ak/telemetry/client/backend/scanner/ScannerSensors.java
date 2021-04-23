@@ -110,8 +110,7 @@ public class ScannerSensors {
 
     private static String readFile(File sensorFile) {
         StringBuilder stringBuilder = new StringBuilder();
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(sensorFile));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(sensorFile))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line);
