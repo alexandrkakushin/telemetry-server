@@ -11,6 +11,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],            
             "aot": true,
             "outputPath": "dist",
             "index": "src/index.html",
@@ -41,7 +44,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -134,7 +136,7 @@
       }
     }
   },
-  "defaultProject": "telemetry-client",
+  "defaultProject": "telemetry-server",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

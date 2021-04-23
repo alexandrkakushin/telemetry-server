@@ -4,7 +4,6 @@ import {Cpu} from "../../model/cpu.model";
 
 @Component({
   selector: 'cpu-root',
-  moduleId: module.id,
   templateUrl: './cpu.component.html'
 })
 export class CpuComponent {

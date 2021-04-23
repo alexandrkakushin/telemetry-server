@@ -1,12 +1,10 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {Sensor} from "../../model/sensor.model";
 import {SensorsRepository} from "../../model/repository/sensors.repository";
 
 @Component({
   selector: 'sensors-root',
-  moduleId: module.id,
   templateUrl: './sensors.component.html'
-  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SensorsComponent {
 

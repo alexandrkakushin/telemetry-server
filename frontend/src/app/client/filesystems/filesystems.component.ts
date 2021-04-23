@@ -4,7 +4,6 @@ import {FileSystemsRepository} from "../../model/repository/filesystems.reposito
 
 @Component({
   selector: 'filesystems-root',
-  moduleId: module.id,
   templateUrl: './filesystems.component.html'
 })
 export class FileSystemsComponent {

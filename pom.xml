@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ru.ak.telemetry</groupId>
-	<artifactId>client</artifactId>
+	<artifactId>server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
-	<name>client</name>
-	<description>Client Telemetry</description>
+	<name>server</name>
+	<description>Telemetry Server</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

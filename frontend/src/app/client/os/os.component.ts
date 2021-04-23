@@ -4,7 +4,6 @@ import {Os} from "../../model/os.model";
 
 @Component({
   selector: 'os-root',
-  moduleId: module.id,
   templateUrl: './os.component.html'
 })
 export class OsComponent {

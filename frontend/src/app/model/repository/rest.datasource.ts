@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import "rxjs/add/operator/map";
 import {Os} from "../os.model";
 import {FileSystem} from "../filesystem.model";
 import {Sensor} from "../sensor.model";
