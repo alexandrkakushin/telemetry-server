@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
-import {Os} from "../os.model";
-import {FileSystem} from "../filesystem.model";
-import {Sensor} from "../sensor.model";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {Cpu} from "../cpu.model";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Os } from "../os.model";
+import { FileSystem } from "../filesystem.model";
+import { Sensor } from "../sensor.model";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { Cpu } from "../cpu.model";
 
 @Injectable()
 export class RestDataSource {

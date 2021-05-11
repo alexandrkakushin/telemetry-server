@@ -3,10 +3,10 @@ import {FileSystem} from "../../model/filesystem.model";
 import {FileSystemsRepository} from "../../model/repository/filesystems.repository";
 
 @Component({
-  selector: 'filesystems-root',
-  templateUrl: './filesystems.component.html'
+  selector: 'filesystems-detail',
+  templateUrl: './filesystems-detail.component.html'
 })
-export class FileSystemsComponent {
+export class FileSystemsDetailComponent {
 
   constructor(private repository: FileSystemsRepository) {}
 

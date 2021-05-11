@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import {CpuRepository} from "../../model/repository/cpu.repository";
-import {Cpu} from "../../model/cpu.model";
+import { CpuRepository } from "../../model/repository/cpu.repository";
+import { Cpu } from "../../model/cpu.model";
 
 @Component({
-  selector: 'cpu-root',
-  templateUrl: './cpu.component.html'
+  selector: 'cpu-usage',
+  templateUrl: './cpu-usage.component.html'
 })
-export class CpuComponent {
+
+export class CpuUsageComponent {
 
   constructor(private repository: CpuRepository) {}
 
